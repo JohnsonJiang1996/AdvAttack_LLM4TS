@@ -1,0 +1,7 @@
+numpy
+pandas
+matplotlib
+nixtla
+scikit-learn
+torch
+neuralforecast
