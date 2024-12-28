@@ -97,10 +97,10 @@ Got ideas for stronger attacks? Know how to fortify LLMs? We’d love your help!
 
 If you use this code or find the research helpful, please cite:
 ```
-@article{jiang2024adversarial,
+@article{liu2024adversarial,
   title={Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting},
-  author={Jiang, Sicong and Liu, Fuqiang, et al.},
-  journal={Preprint},
+  author={Liu, Fuqiang and Jiang, Sicong and Miranda-Moreno, Luis and Choi, Seongjin and Sun, Lijun},
+  journal={arXiv preprint arXiv:2412.08099},
   year={2024}
 }
 ```
