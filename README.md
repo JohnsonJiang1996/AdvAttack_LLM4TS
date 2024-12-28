@@ -1,7 +1,7 @@
-# 🔒 Adversarial Attacks on Time Series LLMs 🚀
+# 🔒 Adversarial Attack on LLMs for Time Series Forecasting🚀
 
-Welcome to the **Adversarial Time Series LLMs** repository! 
-LLM-TimeSeriesVulnerabilities is a research project focused on investigating the adversarial vulnerabilities of Large Language Models (LLMs) in time series forecasting tasks. This repository introduces a targeted adversarial attack framework tailored to LLM-based time series models, specifically utilizing gradient-free optimization techniques to create minimal yet highly effective perturbations. The attacks significantly degrade the accuracy of time series predictions across multiple LLM architectures, including GPT-3.5, GPT-4, LLaMa, and Mistral.
+Welcome to the **Adversarial Attack on LLM4TS** repository! AdversarialLLM4TS is a research project focused on investigating the adversarial vulnerabilities of Large Language Models (LLMs) in time series forecasting tasks. This repository introduces a targeted adversarial attack framework tailored to LLM-based time series models, specifically utilizing gradient-free optimization techniques to create minimal yet highly effective perturbations.
+
 ---
 
 ## 📚 What’s This All About?
@@ -18,7 +18,7 @@ This repo dives deep into:
 
 ## ✨ Key Features
 
-- **Black-Box Magic**: Crafting adversarial attacks without peeking inside the LLM’s inner workings.
+- **Black-Box Attack**: Crafting adversarial attacks without peeking inside the LLM’s inner workings.
 - **Directional Gradient Approximation (DGA)**: Our secret sauce to transform time series forecasts into random walks.
 - **Benchmark Datasets**: Tested across ETTh1, IstanbulTraffic, and more—our attacks don’t discriminate!
 - **Model Variety**: From fine-tuned LLaMa and GPT-4 to specialized TimeGPT, no LLM is safe!
