@@ -4,6 +4,20 @@ Welcome to the **Adversarial Attack on LLM4TS** repository! This repository cont
 
 ---
 
+## 📜 Citation
+
+If you use this code or find the research helpful, please cite:
+```
+@article{liu2024adversarial,
+  title={Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting},
+  author={Liu, Fuqiang and Jiang, Sicong and Miranda-Moreno, Luis and Choi, Seongjin and Sun, Lijun},
+  journal={arXiv preprint arXiv:2412.08099},
+  year={2024}
+}
+```
+
+---
+
 ## 📚 What’s This All About?
 
 LLMs have made waves in time series forecasting—handling everything from predicting stock trends to weather patterns with their uncanny ability to process sequential data. But here's the catch: **they aren't as invincible as they seem**.
@@ -90,20 +104,5 @@ Got ideas for stronger attacks? Know how to fortify LLMs? We’d love your help!
 - **Fuqiang Liu**, **Sicong Jiang** (Co-First Authors)
 - **Seongjin Choi**, **Luis Miranda-Moreno**, **Lijun Sun**
 
----
-
-## 📜 Citation
-
-If you use this code or find the research helpful, please cite:
-```
-@article{liu2024adversarial,
-  title={Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting},
-  author={Liu, Fuqiang and Jiang, Sicong and Miranda-Moreno, Luis and Choi, Seongjin and Sun, Lijun},
-  journal={arXiv preprint arXiv:2412.08099},
-  year={2024}
-}
-```
-
----
 
 🔍 Explore. Experiment. Attack. Let’s make forecasting stronger, one adversarial example at a time!
