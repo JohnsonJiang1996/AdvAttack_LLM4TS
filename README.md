@@ -1,6 +1,6 @@
 # 🔒 Adversarial Attack on LLM4TS🚀
 
-Welcome to the **Adversarial Attack on LLM4TS** repository! This repository contains the official code implementation for the paper [Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting](https://arxiv.org/abs/2412.08099). Dive into the fascinating world of Large Language Models (LLMs) and their application in time series forecasting as we explore their capabilities, limitations, and the intriguing vulnerabilities exposed by adversarial attacks.
+Welcome to the **Adversarial Attack on LLM4TS** repository! This repository contains the official code implementation for the paper [Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting](https://arxiv.org/abs/2412.08099). Curious about the robustness of Large Language Models (LLMs) in predicting the future (literally, time series forecasting)? You've come to the right place to discover their triumphs, their pitfalls, and the intriguing vulnerabilities exposed by adversarial attacks.
 
 ---
 
