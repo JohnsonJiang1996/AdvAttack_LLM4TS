@@ -56,7 +56,7 @@ python run_attack.py --model LLMTime --dataset ETTh1 --attack DGA
 
 ## 🧪 Experiments Galore
 
-| Dataset            | Models Tested        | Attack Type | Impact (MAE 🁑) |
+| Dataset            | Models Tested        | Attack Type | Impact (MAE&MSE) |
 |--------------------|----------------------|-------------|----------------|
 | **ETTh1**          | GPT-3.5, GPT-4      | DGA         | Significant    |
 | **IstanbulTraffic**| LLaMa, Mistral      | DGA         | Very High      |
