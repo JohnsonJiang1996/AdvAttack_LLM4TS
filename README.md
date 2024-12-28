@@ -1,6 +1,6 @@
 # 🔒 Adversarial Attack on LLM4TS🚀
 
-Welcome to the **Adversarial Time Series LLMs** repository! Curious about the robustness of Large Language Models (LLMs) in predicting the future (literally, time series forecasting)? You've come to the right place to discover their triumphs, their pitfalls, and the intriguing vulnerabilities exposed by adversarial attacks.
+Welcome to the **Adversarial Attack on LLM4TS** repository! Curious about the robustness of Large Language Models (LLMs) in predicting the future (literally, time series forecasting)? You've come to the right place to discover their triumphs, their pitfalls, and the intriguing vulnerabilities exposed by adversarial attacks.
 
 ---
 
