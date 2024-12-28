@@ -29,7 +29,6 @@ This repo dives deep into:
 
 Adversarial attacks introduce tiny tweaks to time series input data—imperceptible to the human eye but devastating to LLMs’ predictions. Imagine stock prices turning into white noise or weather forecasts spiraling into gibberish. That’s the power of **DGA**. 
 
-> 📊 Results? Adversarial perturbations disrupt predictions much more than regular Gaussian noise, revealing critical vulnerabilities in LLMs.
 
 ---
 
