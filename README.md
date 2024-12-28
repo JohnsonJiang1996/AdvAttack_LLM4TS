@@ -1,6 +1,6 @@
-# 🔒 Adversarial Attack on LLMs for Time Series Forecasting🚀
+# 🔒 Adversarial Attack on LLM4TS🚀
 
-Welcome to the **Adversarial Attack on LLM4TS** repository! AdversarialLLM4TS is a research project focused on investigating the adversarial vulnerabilities of Large Language Models (LLMs) in time series forecasting tasks. This repository introduces a targeted adversarial attack framework tailored to LLM-based time series models, specifically utilizing gradient-free optimization techniques to create minimal yet highly effective perturbations.
+Welcome to the **Adversarial Time Series LLMs** repository! Curious about the robustness of Large Language Models (LLMs) in predicting the future (literally, time series forecasting)? You've come to the right place to discover their triumphs, their pitfalls, and the intriguing vulnerabilities exposed by adversarial attacks.
 
 ---
 
