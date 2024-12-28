@@ -1,7 +1,7 @@
 # 🔒 Adversarial Attacks on Time Series LLMs 🚀
 
-Welcome to the **Adversarial Time Series LLMs** repository! If you've ever wondered whether Large Language Models (LLMs) could predict the future (literally, in time series forecasting), we’re here to unveil the good, the bad, and the adversarially ugly truths.
-
+Welcome to the **Adversarial Time Series LLMs** repository! 
+LLM-TimeSeriesVulnerabilities is a research project focused on investigating the adversarial vulnerabilities of Large Language Models (LLMs) in time series forecasting tasks. This repository introduces a targeted adversarial attack framework tailored to LLM-based time series models, specifically utilizing gradient-free optimization techniques to create minimal yet highly effective perturbations. The attacks significantly degrade the accuracy of time series predictions across multiple LLM architectures, including GPT-3.5, GPT-4, LLaMa, and Mistral.
 ---
 
 ## 📚 What’s This All About?
