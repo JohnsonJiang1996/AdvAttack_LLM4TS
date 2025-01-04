@@ -67,15 +67,18 @@ python run_attack.py --model LLMTime --dataset ETTh1 --attack DGA
 
 ---
 
-## 🧪 Experiments Galore
+## 🧪 Experiment Summary Table
 
-| Dataset            | Models Tested        | Attack Type | Impact (MAE&MSE) |
-|--------------------|----------------------|-------------|----------------|
-| **ETTh1**          | GPT-3.5, GPT-4      | DGA         | Significant    |
-| **IstanbulTraffic**| LLaMa, Mistral      | DGA         | Very High      |
-| **Weather**        | TimeGPT, LLM-Time   | DGA         | Substantial    |
+| Dataset            | Models Tested                                           | Attack Type | Impact (MAE & MSE)                      |
+|--------------------|---------------------------------------------------------|-------------|-----------------------------------------|
+| **ETTh1**          | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Moderate improvement for LLMs; TimeGPT excels |
+| **ETTh2**          | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | High impact on LLMs, especially Mistral |
+| **IstanbulTraffic**| GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Very high impact, particularly on Mistral|
+| **Weather**        | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Minimal effect; DGA impact consistent   |
+| **Exchange**       | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Moderate impact; GPT-4 slightly better  |
 
-> For detailed results and visualizations, check out our [experiments folder](experiments/).
+> Detailed results available in the [experiments folder](experiments/).
+
 
 ---
 
