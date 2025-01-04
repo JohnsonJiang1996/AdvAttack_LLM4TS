@@ -60,7 +60,7 @@ pip install -r requirements.txt
 ```
 
 ### 3️⃣ Try It Out
-Run our experiments on your favorite LLM and dataset combo referring to the instructions in  [attack code](attack/).
+Run our experiments on your favorite LLM and dataset combo combination by following the instructions in  [attack code](attack/).
 
 ---
 
