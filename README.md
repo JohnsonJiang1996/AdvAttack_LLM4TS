@@ -60,10 +60,7 @@ pip install -r requirements.txt
 ```
 
 ### 3️⃣ Try It Out
-Run our experiments on your favorite LLM and dataset combo:
-```bash
-python run_attack.py --model LLMTime --dataset ETTh1 --attack DGA
-```
+Run our experiments on your favorite LLM and dataset combo referring to the instructions in  [attack code](attack/).
 
 ---
 
