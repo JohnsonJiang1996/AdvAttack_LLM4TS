@@ -71,7 +71,7 @@ python run_attack.py --model LLMTime --dataset ETTh1 --attack DGA
 
 | Dataset            | Models Tested                                           | Attack Type | Impact (MAE & MSE)                      |
 |--------------------|---------------------------------------------------------|-------------|-----------------------------------------|
-| **ETTh1**          | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Moderate improvement for LLMs; TimeGPT excels |
+| **ETTh1**          | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Consistently increased MAE & MSE  |
 | **ETTh2**          | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | High impact on LLMs, especially Mistral |
 | **IstanbulTraffic**| GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Very high impact, particularly on Mistral|
 | **Weather**        | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Minimal effect; DGA impact consistent   |
