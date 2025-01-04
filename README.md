@@ -2,6 +2,8 @@
 
 Welcome to the **Adversarial Attack on LLM4TS** repository! This repository contains the official code implementation for the paper [Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting](https://arxiv.org/abs/2412.08099). Dive into the fascinating world of Large Language Models (LLMs) and their application in time series forecasting as we explore their capabilities, limitations, and the vulnerabilities exposed by adversarial attacks.
 
+![Adversarial Black-box Attack for LLMs in Time Series Forecasting](experiments/attack.png)
+
 ---
 
 ## 📜 Citation
@@ -60,22 +62,22 @@ pip install -r requirements.txt
 ```
 
 ### 3️⃣ Try It Out
-Run our experiments on your favorite LLM and dataset combo:
-```bash
-python run_attack.py --model LLMTime --dataset ETTh1 --attack DGA
-```
+Run our experiments on your favorite LLM and dataset combo combination by following the instructions in  [attack code](attack/).
 
 ---
 
-## 🧪 Experiments Galore
+## 🧪 Experiment Summary Table
 
-| Dataset            | Models Tested        | Attack Type | Impact (MAE&MSE) |
-|--------------------|----------------------|-------------|----------------|
-| **ETTh1**          | GPT-3.5, GPT-4      | DGA         | Significant    |
-| **IstanbulTraffic**| LLaMa, Mistral      | DGA         | Very High      |
-| **Weather**        | TimeGPT, LLM-Time   | DGA         | Substantial    |
+| Dataset            | Models Tested                                           | Attack Type | Impact (MAE & MSE)                      |
+|--------------------|---------------------------------------------------------|-------------|-----------------------------------------|
+| **ETTh1**          | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Consistently increased MAE & MSE  |
+| **ETTh2**          | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | High impact on LLMs, especially Mistral |
+| **IstanbulTraffic**| GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Very high impact, particularly on Mistral|
+| **Weather**        | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Minimal effect; DGA impact consistent   |
+| **Exchange**       | GPT-3.5, GPT-4, LLaMa 2, Mistral, GPT-2 (Time-LLM)     | DGA         | Moderate impact; GPT-4 slightly better  |
 
-> For detailed results and visualizations, check out our [experiments folder](experiments/).
+> Detailed results available in the [experiments folder](experiments/).
+
 
 ---
 
