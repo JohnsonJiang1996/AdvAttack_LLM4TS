@@ -52,7 +52,7 @@ Adversarial attacks introduce tiny tweaks to time series input data—impercepti
 
 ### 1️⃣ Clone the Repo
 ```bash
-git clone https://github.com/johnsonjiang96/AdvAttack_LLM4TS.git
+git clone https://github.com/JohnsonJiang1996/AdvAttack_LLM4TS.git
 cd AdvAttack_LLM4TS
 ```
 
