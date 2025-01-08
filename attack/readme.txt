@@ -1,4 +1,4 @@
-# Time Series Forecasting Adversarial Attacks
+# Adversarial Attack on LLM4TS
 
 This project implements and evaluates various adversarial attacks against time series forecasting models, with a particular focus on TimeGPT and other neural forecasting architectures.
 
