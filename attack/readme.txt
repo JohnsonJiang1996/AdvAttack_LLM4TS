@@ -59,13 +59,6 @@ This will:
 - Compare prediction errors between different models
 - Save results to 'exchange_results_with_timegpt_48_new.csv'
 
-python neural_test.py
-
-This will:
-- Compare different neural forecasting models
-- Generate performance metrics (MAE and MSE)
-- Save results to 'exchange_results_with_timegpt_48_new.csv'
-
 ## Data
 
 The project uses the exchange rate dataset by default. The data should be in CSV format with:
