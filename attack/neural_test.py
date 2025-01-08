@@ -13,8 +13,8 @@ os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 # Initialize TimeGPT client
 nixtla_client = NixtlaClient(
-    api_key= # add the key from TimeGPT. https://docs.nixtla.io/docs/getting-started-setting_up_your_api_key
-    )
+    api_key="YOUR_API_KEY"  # Replace with your TimeGPT API key
+)
 nixtla_client.validate_api_key()
 
 # Load the standardized ETTh1 dataset

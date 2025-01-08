@@ -4,8 +4,8 @@ from nixtla import NixtlaClient
 
 # TimeGPT key identification
 nixtla_client = NixtlaClient(
-    api_key = # add the key from TimeGPT. https://docs.nixtla.io/docs/getting-started-setting_up_your_api_key
-    )
+    api_key="YOUR_API_KEY"  # Replace with your TimeGPT API key
+)
 
 nixtla_client.validate_api_key()
 
