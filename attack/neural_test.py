@@ -65,14 +65,9 @@ models = [
     PatchTST(h=horizon, input_size=input_length, max_steps=train_steps),
     TimesNet(h=horizon, input_size=input_length, max_steps=train_steps),
     NLinear(h=horizon, input_size=input_length, max_steps=train_steps),
-    Informer(h=horizon, input_size=input_length, max_steps=train_steps), 'TimeGPT'
+    Informer(h=horizon, input_size=input_length, max_steps=train_steps), 
+    'TimeGPT'
 ]
-# TimeLLM(h=horizon, input_size=input_length,batch_size=8,
-#       valid_batch_size=8,
-#       windows_batch_size=256,
-#       inference_windows_batch_size=256,),]
-
-# Add a Historical Average method
 
 # Define a table to save the results
 results = {'Model': [], 'MAE': [], 'MSE': []}
@@ -82,47 +77,7 @@ for model in models:
     model_name = model if isinstance(model, str) else type(model).__name__
     print(f"Evaluating model: {model_name}")
 
-    if model_name == 'HistoricalAverage':
-        mae_list = []
-        mse_list = []
-
-        # Rolling window prediction
-        for i in range(0, len(test_df) - input_length - horizon, input_length):
-            # Extract input data with length of input_length
-            input_df = test_df.iloc[i:i + input_length].copy()
-
-            # Compute the historical average of the input
-            hist_avg = input_df['y'].mean()
-
-            # Generate predictions of length horizon, with values all equal to the historical average
-            pred_values = np.full(horizon, hist_avg)
-
-            # Extract the true values for the corresponding time period
-            true_values = test_df['y'].iloc[i + input_length:i + input_length + horizon].values  # Extract corresponding true values
-
-            # Check if the true values contain NaN
-            if np.isnan(true_values).any():
-                print(f"NaN detected in true values at step {i}")
-                continue  # Skip steps that contain NaN
-
-            # Calculate the error
-            mae = mean_absolute_error(true_values, pred_values)
-            mse = mean_squared_error(true_values, pred_values)
-
-            # Record the error
-            mae_list.append(mae)
-            mse_list.append(mse)
-
-        # Compute the average MAE and MSE
-        avg_mae = np.mean(mae_list) if mae_list else np.nan
-        avg_mse = np.mean(mse_list) if mse_list else np.nan
-
-        # Store the results
-        results['Model'].append(model_name)
-        results['MAE'].append(avg_mae)
-        results['MSE'].append(avg_mse)
-
-    elif model_name == 'TimeGPT':
+    if model_name == 'TimeGPT':
         mae_list = []
         mse_list = []
 
