@@ -3,11 +3,9 @@
 
 Welcome to the **Adversarial Attack on LLM4TS** repository! This repository contains the official code implementation for the paper [Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting](https://arxiv.org/abs/2412.08099). Dive into the fascinating world of Large Language Models (LLMs) and their application in time series forecasting as we explore their capabilities, limitations, and the vulnerabilities exposed by adversarial attacks. 
 
-You are also wellcome to check our [Project Page.](https://fuqliu.github.io/attack-llm4ts/)
+🌐 Project Page is also available [here](https://fuqliu.github.io/attack-llm4ts/).
 
 ![Adversarial Black-box Attack for LLM in Time Series Forecasting](experiments/attack.png)
-
---
 
 ## 📜 Citation
 
