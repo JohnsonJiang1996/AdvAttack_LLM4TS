@@ -4,6 +4,7 @@ Welcome to the **Adversarial Attack on LLM4TS** repository! This repository cont
 
 ![Adversarial Black-box Attack for LLM in Time Series Forecasting](experiments/attack.png)
 
+🌐 Project Page: https://fuqliu.github.io/attack-llm4ts/
 ---
 
 ## 📜 Citation
