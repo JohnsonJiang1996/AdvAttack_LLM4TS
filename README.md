@@ -1,4 +1,4 @@
-# 🔒 (AISTST'25) Adversarial Vulnerabilities in LLM4TS📈
+# 🔒 (AISTAT'25) Adversarial Vulnerabilities in LLM4TS📈
 
 
 Welcome to the **Adversarial Vulnerabilities in LLM4TS** repository! This repository contains the official code implementation for the paper [Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting](https://arxiv.org/abs/2412.08099). Dive into the fascinating world of Large Language Models (LLMs) and their application in time series forecasting as we explore their capabilities, limitations, and the vulnerabilities exposed by adversarial attacks. 
