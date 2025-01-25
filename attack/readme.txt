@@ -1,27 +1,49 @@
-# Adversarial Attack on LLM4TS
+# Adversarial Attack on Time Series Forecasting Models
 
-This project implements and evaluates various adversarial attacks against time series forecasting models, with a particular focus on TimeGPT and other neural forecasting architectures.
+This project implements and evaluates adversarial attacks against various time series forecasting models, with a focus on comparing TimeGPT with other neural forecasting architectures.
 
 ## Project Structure
 
-- `attack.py`: Contains implementations of different adversarial attack methods:
-  - GWN (Gaussian White Noise)
-  - DGA (Directional Gradient Attack)
-  - SPSA (Simultaneous Perturbation Stochastic Approximation)
-  - ITE (Iterative Attack)
+- `attack_time_model.py`: Focuses on evaluating TimeGPT's robustness against DGA (Directional Gradient Attack)
+  - Uses standardized data
+  - Implements sliding window prediction (step size = horizon)
+  - Evaluates both clean and attacked performance
 
-- `main.py`: Demonstrates the implementation of adversarial attacks against TimeGPT using the exchange rate dataset.
+- `attack_different_models.py`: Comprehensive evaluation of multiple models
+  - Evaluates TimeGPT and neural forecasting models
+  - Uses DGA for TimeGPT and GWN for other models
+  - Maintains consistent evaluation metrics
 
-- `neural_test.py`: Benchmarks various neural forecasting models against TimeGPT, including:
-  - LSTM
-  - NHITS
-  - Autoformer
-  - iTransformer
-  - PatchTST
-  - TimesNet
-  - NLinear
-  - Informer
-  - TimeGPT
+## Attack Methods
+
+1. **DGA (Directional Gradient Attack)**
+   - Used specifically for TimeGPT
+   - Calculates gradient direction through API queries
+   - Applies perturbation in original data space
+   - Scale of attack: 2% of data mean value
+
+2. **GWN (Gaussian White Noise)**
+   - Used for neural forecasting models
+   - Adds random Gaussian noise
+   - Same scale as DGA for fair comparison
+
+## Data Processing
+
+- Data split: 60% training, 20% validation, 20% testing
+- Input window: 96 timesteps
+- Prediction horizon: 48 timesteps
+- Standardization applied before model input
+- Sliding window evaluation with horizon-length steps
+
+## Models Evaluated
+
+1. TimeGPT (with DGA attack)
+2. LSTM
+3. NHITS
+4. iTransformer
+5. PatchTST
+6. TimesNet
+7. NLinear
 
 ## Requirements
 
@@ -29,61 +51,41 @@ This project implements and evaluates various adversarial attacks against time s
 - PyTorch
 - pandas
 - numpy
-- nixtla
+- nixtla (for TimeGPT)
 - neuralforecast
 - sklearn
 
-## Setup
-
-1. Install the required packages:
-
-2. Get your TimeGPT API key from https://www.nixtla.io/
-
-3. Set your API key in both main.py and neural_test.py
-
 ## Usage
 
-### Running Adversarial Attacks
+1. Set up TimeGPT API key in both main.py and neural_test.py
 
+2. Run TimeGPT evaluation:
+```bash
 python main.py
-This will:
-- Load the exchange rate dataset
-- Apply both clean predictions and adversarial attacks
-- Compare prediction errors between clean and attacked data
+```
+- Evaluates TimeGPT with DGA attack
+- Outputs clean and attacked performance metrics
 
-### Benchmarking Different Models
+3. Run comprehensive model evaluation:
+```bash
 python neural_test.py
-This will:
-- Load the exchange rate dataset
-- Train and predict using various neural forecasting models
-- Compare prediction errors between different models
-- Save results to 'exchange_results_with_timegpt_48_new.csv'
+```
+- Evaluates all models
+- Uses appropriate attack method for each model
+- Saves results in CSV format
 
-## Data
+## Output Format
 
-The project uses the exchange rate dataset by default. The data should be in CSV format with:
-- A date column ('ds')
-- A target column ('y')
-
-## Attack Methods
-
-1. **GWN (Gaussian White Noise)**
-   - Adds random Gaussian noise to the input data
-
-2. **DGA (Directional Gradient Attack)**
-   - Uses gradient information to generate adversarial perturbations
-   - Optimized for maximum prediction error
-
-3. **SPSA (Simultaneous Perturbation Stochastic Approximation)**
-   - Gradient-free optimization method
-   - Useful for black-box attacks
-
-4. **ITE (Iterative Attack)**
-   - Iterative optimization process
-   - Allows for controlled perturbation magnitude
+Results are saved in CSV files with columns:
+- Model: Model name
+- Clean_MAE: Mean Absolute Error without attack
+- Clean_MSE: Mean Squared Error without attack
+- Attack_MAE: Mean Absolute Error under attack
+- Attack_MSE: Mean Squared Error under attack
 
 ## Notes
 
-- The scale of attacks can be adjusted using the 'scale' parameter
-- Default forecast horizon is 48 steps
-- Input sequence length is 96 steps by default
+- TimeGPT requires API key from nixtla.io
+- Different attack methods (DGA vs GWN) are used based on model type
+- All evaluations use consistent metrics and data processing
+- Results are saved with dataset name, input length, and horizon in filename

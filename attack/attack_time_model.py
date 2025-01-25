@@ -1,10 +1,11 @@
 import numpy as np
 import pandas as pd
 from nixtla import NixtlaClient
+import os
 
 # TimeGPT key identification
 nixtla_client = NixtlaClient(
-    api_key="YOUR_API_KEY"  # Replace with your TimeGPT API key
+    api_key="nixak-GTNWCyIqUdHIpGMwLban6vwkZMrhdqGdN6QwM4jo2RddMi4TyjhBxnEab9A8tXO2TU6X0r8jqcbn0IFj"  # Replace with your TimeGPT API key
 )
 
 nixtla_client.validate_api_key()
@@ -42,43 +43,51 @@ def DGA(df, nixtla_client, scale, time_col, target_col, h, freq, mean, std):
     return noise
 
 # Setting
-time_col = 'date'
-target_col = 'Australia'
-h = 48
-n = 96
+time_col = 'ds'
+target_col = 'y'
+h = 48  # horizon length
+n = 96  # input length
 model = 'TimeGPT_'
+freq = 'h'  # hourly frequency for ETTh1
 
 # Data read
-ds_name = 'exchange2' + '.csv'
-df = pd.read_csv(ds_name)
-print(df.columns)
+input_file = 'dataset/ETTh2.csv'
+dataset_name = os.path.splitext(os.path.basename(input_file))[0]
+df = pd.read_csv(input_file)
+print(f"Total dataset length: {len(df)}")
+
+# Rename columns from ETTh1 format to our format
+df = df.rename(columns={'date': 'ds', 'OT': 'y'})
+
+# Calculate statistics for standardization
 std = df[target_col].std()
 mean = df[target_col].mean()
 
-
-# dataset split
+# dataset split (0.6, 0.2, 0.2)
 l = len(df)
-l_train = int(0.5*l)
-l_validation = int(0.25*l)
-l_test = l - l_train - l_validation
-freq = 'D'
-train = df.iloc[0:l_train,:]
-test = df.iloc[l_train + l_validation : l,:]
+l_train = int(0.6*l)      # 60% for training
+l_validation = int(0.2*l)  # 20% for validation
+l_test = l - l_train - l_validation  # 20% for testing
 
+train = df.iloc[0:l_train,:]
+test = df.iloc[-l_test:,:]  # Use last 20% for testing
+
+# Convert date columns to datetime
+train['ds'] = pd.to_datetime(train['ds'])
+test['ds'] = pd.to_datetime(test['ds'])
 
 # Scale Setting
 scale = mean * 0.02
 print('scale:', scale)
 
 iter = int((l_test - h)/h) - 1
-print(iter)
+print('Number of iterations:', iter)
 pred_ = []
 truth_ = []
-#pred_gwn = []
 pred_dga = []
 
 for i in range(iter):
-    print('iteration number:',i)
+    print('iteration number:', i)
     input = test.iloc[i * h : i * h + n,:]
     output = test.iloc[i * h + n: i * h + n + h,:]
     train_ = input.copy()
@@ -87,48 +96,46 @@ for i in range(iter):
     test_[target_col] = (test_[target_col] - mean)/std 
     truth_.append(test_[target_col].values.copy())
        
-    timegpt_fcst_df = nixtla_client.forecast(df=train_, h=h, time_col=time_col, target_col=target_col, freq=freq, model='timegpt-1-long-horizon')
-    timegpt_fcst_df.head()
-
+    # Clean prediction
+    timegpt_fcst_df = nixtla_client.forecast(df=train_, h=h, time_col=time_col, target_col=target_col, freq=freq, model='timegpt-1-long-horizion')
     prediction = timegpt_fcst_df['TimeGPT']
     pred_.append(prediction.values.copy())
-
-    # prediction with GWN
-    #input_gwn = GWN(input, scale, target_col)
-    #input_gwn_ = input_gwn.copy()
-    #input_gwn_[target_col] = (input_gwn_[target_col] - mean)/std 
-    #timegpt_gwn_df = nixtla_client.forecast(df=input_gwn_, h=h, time_col=time_col, target_col=target_col, freq=freq, model='timegpt-1-long-horizon')
-    #timegpt_gwn_df.head()
-    #prediction_gwn = timegpt_gwn_df['TimeGPT']
-    #pred_gwn.append(prediction_gwn.values.copy())
 
     # prediction with dga
     input_dga = DGA(input, nixtla_client, scale, time_col, target_col, h, freq, mean, std)
     input_dga_ = input_dga.copy()
     input_dga_[target_col] = (input_dga_[target_col] - mean)/std 
-    timegpt_dga_df = nixtla_client.forecast(df=input_dga_, h=h, time_col=time_col, target_col=target_col, freq=freq, model='timegpt-1-long-horizon')
-    timegpt_dga_df.head()
+    timegpt_dga_df = nixtla_client.forecast(df=input_dga_, h=h, time_col=time_col, target_col=target_col, freq=freq, model='timegpt-1-long-horizion')
 
     prediction_dga = timegpt_dga_df['TimeGPT']
     pred_dga.append(prediction_dga.values.copy())
 
 truth_ = np.array(truth_)
 pred_ = np.array(pred_)
-#pred_gwn = np.array(pred_gwn)
 pred_dga = np.array(pred_dga)
 
+# Calculate and print metrics
 mae_pure = np.mean(np.mean(np.abs(pred_ - truth_)))
 mse_pure = np.mean((pred_-truth_)**2)
-print('prediction error w/o attacks: mae=',mae_pure)
-print('prediction error w/o attacks: mse=',mse_pure)
-
-#mae_gwn = np.mean(np.mean(np.abs(pred_gwn - truth_)))
-#mse_gwn = np.mean((pred_gwn-truth_)**2)
-#print('prediction error w/ gwns: mae=',mae_gwn)
-#print('prediction error w/ gwns: mse=',mse_gwn)
+print('prediction error w/o attacks: mae=', mae_pure)
+print('prediction error w/o attacks: mse=', mse_pure)
 
 mae_dga = np.mean(np.mean(np.abs(pred_dga - truth_)))
 mse_dga = np.mean((pred_dga-truth_)**2)
-print('prediction error w/ dga attacks: mae=',mae_dga)
-print('prediction error w/ dga attacks: mse=',mse_dga)
+print('prediction error w/ dga attacks: mae=', mae_dga)
+print('prediction error w/ dga attacks: mse=', mse_dga)
+
+# Save results
+results = {
+    'Model': ['TimeGPT'],
+    'Clean_MAE': [mae_pure],
+    'Clean_MSE': [mse_pure],
+    'Attack_MAE': [mae_dga],
+    'Attack_MSE': [mse_dga]
+}
+results_df = pd.DataFrame(results)
+result_filename = f'{dataset_name}_in{n}_out{h}_timegpt_attack_results.csv'
+results_df.to_csv(result_filename, index=False)
+print(f"\nResults saved to: {result_filename}")
+print(results_df)
 
