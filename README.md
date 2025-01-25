@@ -9,7 +9,9 @@ Welcome to the **Adversarial Vulnerabilities in LLM4TS** repository! This reposi
 
 ## 📜 Citation
 
-If you use this code or find the research helpful, please cite:
+If you find our project useful for your research, please consider giving us a star 🌟 and citing our paper. 
+
+We are actively seeking collaboration opportunities and are excited to explore potential ways to work together.
 ```
 @article{liu2024adversarial,
   title={Adversarial Vulnerabilities in Large Language Models for Time Series Forecasting},
