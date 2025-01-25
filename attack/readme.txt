@@ -57,18 +57,22 @@ This project implements and evaluates adversarial attacks against various time s
 
 ## Usage
 
-1. Set up TimeGPT API key in both main.py and neural_test.py
+1. Set up TimeGPT API key:
+   - Register at https://www.nixtla.io/
+   - TimeGPT provides free API credits for initial testing
+   - We recommend starting with these free credits to test the code
+   - API key needs to be set in both attack_different_models and attack_time_model.py
 
 2. Run TimeGPT evaluation:
 ```bash
-python main.py
+python attack_time_model.py
 ```
 - Evaluates TimeGPT with DGA attack
 - Outputs clean and attacked performance metrics
 
 3. Run comprehensive model evaluation:
 ```bash
-python neural_test.py
+python attack_different_models.py
 ```
 - Evaluates all models
 - Uses appropriate attack method for each model
@@ -86,6 +90,9 @@ Results are saved in CSV files with columns:
 ## Notes
 
 - TimeGPT requires API key from nixtla.io
+  - Free API credits are available for initial testing
+  - Each API call counts towards your credit limit
+  - DGA attack requires multiple API calls per prediction
 - Different attack methods (DGA vs GWN) are used based on model type
 - All evaluations use consistent metrics and data processing
 - Results are saved with dataset name, input length, and horizon in filename

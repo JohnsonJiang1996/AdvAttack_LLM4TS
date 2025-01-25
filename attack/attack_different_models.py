@@ -52,7 +52,7 @@ os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 # Initialize TimeGPT client
 nixtla_client = NixtlaClient(
-    api_key="nixak-GTNWCyIqUdHIpGMwLban6vwkZMrhdqGdN6QwM4jo2RddMi4TyjhBxnEab9A8tXO2TU6X0r8jqcbn0IFj"  # Replace with your TimeGPT API key
+    api_key="YOUR_API_KEY"  # Replace with your TimeGPT API key
 )
 nixtla_client.validate_api_key()
 
