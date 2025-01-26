@@ -46,8 +46,7 @@ This repo dives deep into:
 
 ## 🎯 The Core Idea
 
-Adversarial attacks introduce tiny tweaks to time series input data—imperceptible to the human eye but devastating to LLMs’ predictions. Imagine stock prices turning into white noise or weather forecasts spiraling into gibberish. That’s the power of **DGA**. 
-
+Adversarial attacks introduce subtle modifications to time series input data—nearly imperceptible but capable of significantly impacting LLMs’ predictions. For instance, small changes in stock prices could disrupt meaningful patterns, or slight adjustments in weather data might lead to inaccurate forecasts. 
 
 ---
 
