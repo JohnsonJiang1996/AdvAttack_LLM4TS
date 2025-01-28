@@ -27,6 +27,30 @@ This project implements and evaluates adversarial attacks against various time s
    - Adds random Gaussian noise
    - Same scale as DGA for fair comparison
 
+## LLMTime Attack Integration
+
+We provide integration with the LLMTime framework for zero-shot time series forecasting:
+
+1. Clone the LLMTime repository:
+```bash
+git clone https://github.com/ngruver/llmtime.git
+```
+
+2. Install our attack files:
+   - Copy all files from `llmtime_attack` folder to the cloned LLMTime repository
+   - Replace the original demo files with our attack implementation
+
+3. Set up OpenAI API:
+   - You'll need an OpenAI API key for LLMTime testing
+   - Multiple API calls are made during the query phase
+   - We recommend starting with small-scale tests to manage API usage
+   - You can use our attack demo to choose different attack types
+
+4. API Usage Notes:
+   - Each attack iteration requires multiple API calls
+   - Start with a small number of test cases to estimate API consumption
+   - Monitor your API usage to avoid unexpected costs
+
 ## Data Processing
 
 - Data split: 60% training, 20% validation, 20% testing
@@ -54,14 +78,15 @@ This project implements and evaluates adversarial attacks against various time s
 - nixtla (for TimeGPT)
 - neuralforecast
 - sklearn
+- OpenAI API key (for LLMTime integration)
 
 ## Usage
 
-1. Set up TimeGPT API key:
-   - Register at https://www.nixtla.io/
+1. Set up API keys:
+   - Register at https://www.nixtla.io/ for TimeGPT
    - TimeGPT provides free API credits for initial testing
-   - We recommend starting with these free credits to test the code
-   - API key needs to be set in both attack_different_models and attack_time_model.py
+   - Set up OpenAI API key for LLMTime integration
+   - API keys need to be set in both attack_different_models and attack_time_model.py
 
 2. Run TimeGPT evaluation:
 ```bash
@@ -93,6 +118,10 @@ Results are saved in CSV files with columns:
   - Free API credits are available for initial testing
   - Each API call counts towards your credit limit
   - DGA attack requires multiple API calls per prediction
+- LLMTime integration requires OpenAI API:
+  - Start with small-scale tests to manage API usage
+  - Each attack iteration makes multiple API calls
+  - Monitor API consumption carefully
 - Different attack methods (DGA vs GWN) are used based on model type
 - All evaluations use consistent metrics and data processing
 - Results are saved with dataset name, input length, and horizon in filename
