@@ -40,14 +40,13 @@ This repo dives deep into:
 - **Black-Box Attack**: Crafting adversarial attacks without peeking inside the LLM’s inner workings.
 - **Directional Gradient Approximation (DGA)**: Our proposed attack methods for those LLM4TS models.
 - **Benchmark Datasets**: Tested across ETTh1, IstanbulTraffic, and more—our attacks don’t discriminate!
-- **Model Variety**: From fine-tuned LLaMa and GPT-4 to specialized TimeGPT, no LLM is safe!
+- **Model Variety**: From fine-tuned LLaMa and GPT-4 to specialized pre-trained TimeGPT, all LLMs can be attacked!
 
 ---
 
 ## 🎯 The Core Idea
 
-Adversarial attacks introduce tiny tweaks to time series input data—imperceptible to the human eye but devastating to LLMs’ predictions. Imagine stock prices turning into white noise or weather forecasts spiraling into gibberish. That’s the power of **DGA**. 
-
+Adversarial attacks introduce subtle modifications to time series input data—nearly imperceptible but capable of significantly impacting LLMs’ predictions. For instance, small changes in stock prices could disrupt meaningful patterns, or slight adjustments in weather data might lead to inaccurate forecasts. 
 
 ---
 
