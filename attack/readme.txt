@@ -69,6 +69,25 @@ git clone https://github.com/ngruver/llmtime.git
 6. TimesNet
 7. NLinear
 
+## LLM Models (tested in LLMTime framework)
+
+These models require API access and are tested using the LLMTime repository:
+
+1. GPT-3 (requires OpenAI API)
+2. GPT-4 (requires OpenAI API)
+3. Mistral (requires Mistral API)
+
+Note: For LLM models testing:
+- Set up respective API keys in the LLMTime environment
+- Add to your ~/.bashrc:
+  ```bash
+  export OPENAI_API_KEY=<your OpenAI key>
+  export MISTRAL_KEY=<your Mistral key>
+  ```
+- These models are tested using LLMTime's zero-shot forecasting approach
+- API calls are made for both model predictions and attack evaluations
+- Consider API usage costs when planning experiments
+
 ## Requirements
 
 - Python 3.8+
@@ -78,7 +97,13 @@ git clone https://github.com/ngruver/llmtime.git
 - nixtla (for TimeGPT)
 - neuralforecast
 - sklearn
-- OpenAI API key (for LLMTime integration)
+
+## API Requirements
+- TimeGPT API key (from nixtla.io)
+- OpenAI API key (for GPT-3 and GPT-4)
+- Mistral API key (for Mistral models)
+
+Note: All API keys should be properly set in your environment before running experiments. Free credits are available for initial testing with TimeGPT.
 
 ## Usage
 
