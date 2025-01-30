@@ -27,6 +27,18 @@ This project implements and evaluates adversarial attacks against various time s
    - Adds random Gaussian noise
    - Same scale as DGA for fair comparison
 
+3. **SPSA (Simultaneous Perturbation Stochastic Approximation)**
+   - Gradient-free optimization method
+   - Uses random perturbations to estimate gradients
+   - Implemented but not included in main paper results
+
+4. **ITA (Iterative Attack)**
+   - Iterative optimization process
+   - Allows for controlled perturbation magnitude
+   - Implemented but not included in main paper results
+
+Note: While SPSA and ITA are implemented in our codebase (see attack.py), we focus on DGA and GWN in our paper experiments due to their better performance and efficiency in the API query setting. Users can still experiment with these additional attack methods using our implementation. You can use our attack demo to choose different attack types.
+
 ## LLMTime Attack Integration
 
 We provide integration with the LLMTime framework for zero-shot time series forecasting:
