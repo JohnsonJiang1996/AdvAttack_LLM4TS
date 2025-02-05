@@ -68,7 +68,11 @@ git clone https://github.com/ngruver/llmtime.git
 - Data split: 60% training, 20% validation, 20% testing
 - Input window: 96 timesteps
 - Prediction horizon: 48 timesteps
-- Standardization applied before model input
+- Data Standardization:
+  * Calculate mean and std from training data
+  * Apply (x - mean)/std standardization
+  * Attack scale set to 2% of original data mean
+  * Standardization applied before model input and after attacks
 - Sliding window evaluation with horizon-length steps
 
 ## Models Evaluated
