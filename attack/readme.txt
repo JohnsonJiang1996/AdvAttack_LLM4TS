@@ -4,7 +4,7 @@ This project implements and evaluates adversarial attacks against various time s
 
 ## Project Structure
 
-- `example_attack_timegpt.py`: provides an end-to-end example of manipulating [TimeGPT](https://docs.nixtla.io/)
+- `example_attack_timegpt.py`: provides an end-to-end example of manipulating [TimeGPT](https://docs.nixtla.io/) on exchange rate data.
   - Evaluate TimeGPT's robustness against DGA (Directional Gradient Attack)
   - Uses standardized data
   - Implements sliding window prediction (step size = horizon)
