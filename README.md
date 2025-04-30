@@ -70,7 +70,7 @@ Run our experiments on your favorite LLM and dataset combo combination by follow
 
 ## 🧪 Experiment Summary Table
 
-![Adversarial Black-box Attack for LLM in Time Series Forecasting](experiments/attack.png)
+![Adversarial Black-box Attack for LLM in Time Series Forecasting](experiments/MainExperiments.jpg)
 
 > Detailed results available in the [experiments folder](experiments/).
 
